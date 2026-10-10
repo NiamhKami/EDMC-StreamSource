@@ -47,6 +47,7 @@ in EDMC's Output settings tab:
 * `EDMC ShipType.txt` - Ship type, e.g. Krait Phantom.
 * `EDMC ShipName.txt` - Ship name, if the ship has been named. Otherwise, ship
   type.
+* `EDMC CMDR.txt` - CMDR name currently logged into, for those with multiple CMDRs
 
 If the app is started while the game is not running these files hold
 placeholder values, which can be used to position the text in OBS Studio and
