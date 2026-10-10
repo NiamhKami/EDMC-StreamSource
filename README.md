@@ -1,5 +1,3 @@
-** Athanasius retired from all things relating to Elite Dangerous.  Someone else should really fork this and take over maintaining it. **
-
 # Live streaming software plugin for [ED Market Connector](https://github.com/EDCD/EDMarketConnector/wiki)
 
 This plugin outputs status info from the game
@@ -59,6 +57,12 @@ other streaming software.
 Copyright © 2019 Jonathan Harris.
 
 Copyright © 2022 Athanasius.
+
+Modification to add EDMC CMDR.txt output, 2024, by DSS_Lev and NiamhKami
+
+Modification to update legacy unsupported get to use get_str by NiamhKami
+
+Modifcation fix for EDMC ShipType.txt output name mapping by NiamhKami
 
 Licensed under the
 [GNU Public License (GPL)](http://www.gnu.org/licenses/gpl-2.0.html) version 2

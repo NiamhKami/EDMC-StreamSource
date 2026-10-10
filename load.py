@@ -15,8 +15,64 @@ from os.path import join
 from typing import Any, Mapping, MutableMapping, Optional, Tuple
 
 from config import config
-from edmc_data import coriolis_ship_map as ship_map
+# from edmc_data import ship_name_map as ship_map
 from l10n import Locale
+
+ship_map = {
+    'adder':                        'Adder',
+    'anaconda':                     'Anaconda',
+    'asp':                          'Asp Explorer',
+    'asp_scout':                    'Asp Scout',
+    'belugaliner':                  'Beluga Liner',
+    'cobramkiii':                   'Cobra MkIII',
+    'cobramkiv':                    'Cobra MkIV',
+    'cobramkv':                     'Cobra Mk V',
+    'corsair':                      'Corsair',
+    'cutter':                       'Imperial Cutter',
+    'diamondback':                  'Diamondback Scout',
+    'diamondbackxl':                'Diamondback Explorer',
+    'dolphin':                      'Dolphin',
+    'eagle':                        'Eagle',
+    'empire_courier':               'Imperial Courier',
+    'empire_eagle':                 'Imperial Eagle',
+    'empire_fighter':               'Imperial Fighter',
+    'empire_trader':                'Imperial Clipper',
+    'explorer_nx':		    'Caspian Explorer',
+    'federation_corvette':          'Federal Corvette',
+    'federation_dropship':          'Federal Dropship',
+    'federation_dropship_mkii':     'Federal Assault Ship',
+    'federation_gunship':           'Federal Gunship',
+    'federation_fighter':           'F63 Condor',
+    'ferdelance':                   'Fer-de-Lance',
+    'hauler':                       'Hauler',
+    'independant_trader':           'Keelback',
+    'independent_fighter':          'Taipan Fighter',
+    'krait_mkii':                   'Krait MkII',
+    'krait_light':                  'Krait Phantom',
+    'mediumtransport01':	    'Lynx Highliner',
+    'mamba':                        'Mamba',
+    'mandalay':                     'Mandalay',
+    'orca':                         'Orca',
+    'panthermkii':		    'Panther Clipper Mk II',
+    'python':                       'Python',
+    'python_nx':                    'Python Mk II',
+    'scout':                        'Taipan Fighter',
+    'sidewinder':                   'Sidewinder',
+    'smallcombat01_nx':             'Kestrel Mk II',
+    'testbuggy':                    'Scarab',
+    'type6':                        'Type-6 Transporter',
+    'type7':                        'Type-7 Transporter',
+    'type8':                        'Type-8 Transporter',
+    'type9':                        'Type-9 Heavy',
+    'type9_military':               'Type-10 Defender',
+    'lakonminer':		    'Type-11 Prospector',
+    'typex':                        'Alliance Chieftain',
+    'typex_2':                      'Alliance Crusader',
+    'typex_3':                      'Alliance Challenger',
+    'viper':                        'Viper MkIII',
+    'viper_mkiv':                   'Viper MkIV',
+    'vulture':                      'Vulture',
+}
 
 VERSION = '1.10'
 
@@ -35,6 +91,7 @@ class StreamSource:
         self.station_or_body_or_system: str = 'Station or Body or System'
         self.ship_type: str = 'Ship type'
         self.ship_name: str = 'Ship name'
+        self.cmdr: str = 'CMDR name' #new attribute for cmdr
 
         self.outdir = config.get_str('outdir')
 
@@ -111,11 +168,15 @@ def journal_entry(  # noqa: CCR001
     :return:
     """
     # Write any files with changed data
+    if stream_source.cmdr != cmdr:
+        stream_source.cmdr = cmdr
+        write_file('EDMC CMDR.txt', stream_source.cmdr)
+
     if stream_source.system != system:
         stream_source.system = system
         write_file('EDMC System.txt', stream_source.system)
 
-    if entry.get('StarPos') is not None and stream_source.star_pos != tuple(entry['StarPos']):
+    if 'StarPos' in entry and stream_source.star_pos != tuple(entry['StarPos']):
         stream_source.star_pos = tuple(entry['StarPos'])
         write_file(
             'EDMC StarPos.txt',
