@@ -53,6 +53,16 @@ If the app is started while the game is not running these files hold
 placeholder values, which can be used to position the text in OBS Studio and
 other streaming software.
 
+## Fork Notes
+
+My personal fork I originally made in my own download in 2024 and have used on my streams since then. Now that I have created a GitHub account I'm putting it up here for others to use.
+
+Also outputs an EDMC CMDR.txt with your CMDR name.
+
+Updated get to get_str due to get being deprecated
+
+Brought ship name mapping table directly into the plugin since edmc_data was being very slow to update like how the Lynx Highliner is still waiting to be put in there 5 months after release.
+
 ## License
 
 Copyright © 2019 Jonathan Harris.
