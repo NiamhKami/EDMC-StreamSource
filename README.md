@@ -16,7 +16,7 @@ just remove that version and entirely, replacing it with this one.
 * On EDMC's Plugins settings tab press the “Open” button. This reveals the
   `plugins` folder where EDMC looks for plugins.
 * Download the
-  [latest release](https://github.com/Athanasius/EDMC-StreamSource/releases/latest).
+  [latest release](https://github.com/NiamhKami/EDMC-StreamSource/releases/latest).
 * Open the `.zip` archive that you downloaded.  At its top level will be a
   folder named like `EDMC-StreamSource-Release-<version>`.
   1. Copy this into the EDMC `plugins` folder.
