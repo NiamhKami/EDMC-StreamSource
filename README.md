@@ -58,6 +58,8 @@ Copyright © 2019 Jonathan Harris.
 
 Copyright © 2022 Athanasius.
 
+Copyright © 2024 NiamhKami.
+
 Modification to add EDMC CMDR.txt output, 2024, by DSS_Lev and NiamhKami
 
 Modification to update legacy unsupported get to use get_str by NiamhKami
